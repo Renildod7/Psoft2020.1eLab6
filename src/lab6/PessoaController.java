@@ -55,7 +55,9 @@ public class PessoaController {
 		if(verificaCadastroPessoa(cpf)) {
 			Pessoa pessoa = this.pessoas.get(cpf);
 			pessoa.setIdade(idade);
-			pessoa.verificaHabilitacaoParaVacina(idadeMinima, comorbidades, profissoesHabilitadas);
+			if(pessoa.estagioNaoHabilitado()) {
+				pessoa.verificaHabilitacaoParaVacina(idadeMinima, comorbidades, profissoesHabilitadas);
+			}
 			this.pessoas.put(cpf,pessoa);
 		}
 
@@ -109,7 +111,9 @@ public class PessoaController {
 		if(verificaCadastroPessoa(cpf)) {
 			Pessoa pessoa = this.pessoas.get(cpf);
 			pessoa.setProfisao(profissao);
-			pessoa.verificaHabilitacaoParaVacina(idadeMinima, comorbidades, profissoesHabilitadas);
+			if(pessoa.estagioNaoHabilitado()) {
+				pessoa.verificaHabilitacaoParaVacina(idadeMinima, comorbidades, profissoesHabilitadas);
+			}
 			this.pessoas.put(cpf,pessoa);
 		}
 		
@@ -122,7 +126,9 @@ public class PessoaController {
 			
 			Pessoa pessoa = this.pessoas.get(cpf);
 			pessoa.adicionarDoencas(doencas);
-			pessoa.verificaHabilitacaoParaVacina(idadeMinima, comorbidades, profissoesHabilitadas);
+			if(pessoa.estagioNaoHabilitado()) {
+				pessoa.verificaHabilitacaoParaVacina(idadeMinima, comorbidades, profissoesHabilitadas);
+			}
 			this.pessoas.put(cpf,pessoa);
 			
 		}

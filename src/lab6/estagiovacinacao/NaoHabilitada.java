@@ -20,22 +20,6 @@ public class NaoHabilitada extends EstagioVacinacao {
 	
 		boolean profissaoHabilitada = profissoesHabilitadas.contains(pessoa.getProfissao());
 		
-		
-
-		System.out.println("---------------------------------");
-		System.out.println(pessoa.toString());
-		System.out.println("-----");
-		System.out.println(idadeMinima);
-		System.out.println(pessoa.getIdade());
-		System.out.println("-----");
-		System.out.println(comorbidades.toString());
-		System.out.println(pessoa.getDoencas().toString());
-		System.out.println("-----");
-		System.out.println(profissoesHabilitadas.toString());
-		System.out.println(pessoa.getProfissao());
-		System.out.println("---------------------------------");
-
-		
 		if(possuiIdadeMinima || possuiComorbidades || profissaoHabilitada) {
 			pessoa.setEstagioVacinacao(new HabilitadaPrimeiraDose());
 			System.out.println(pessoa.toString() + " foi habilitada a tomar a primeira dose da vacina.");

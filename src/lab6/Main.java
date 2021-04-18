@@ -205,32 +205,30 @@ public class Main {
 		if(!sistemaVacinacao.existemPessoasCadastradas()) {
 			System.out.println("Não existem pessoas cadastradas");
 		} else {
-			boolean cpfExiste = false;
-			while(!cpfExiste) {
-				System.out.print("Cpf: ");
-				String cpf = sc.nextLine();
-				if(cpf.equals("voltar")){
-					cpfExiste = true;
-				} else if(!sistemaVacinacao.cpfCadastrado(cpf)) {
-					System.out.println("Cpf inválido, informe um Cpf válido ou voltar para para voltar ao menu.");
-				} else {
-					
-					boolean alteracaoRealizada = false;
-					while(!alteracaoRealizada) {
-						System.out.println("Informe a opção que deseja alterar\n1) Nome\n2) Idade\n3) Endereco\n4) Número do Cartão do SUS\n5) E-mail\n6) Telefone\n7) Profissão\n8) Adicionar uma doença");
-						int opcao = sc.nextInt();
-						sc.nextLine();
-						if(!alterarCadastroVerificaOpcao(opcao)) {
-							System.out.println("Opcção Inválida.");
-						} else {
-							alteraCadastroProcessaOpcao(opcao, sistemaVacinacao, sc, cpf);
-							alteracaoRealizada = true;
-						}
+
+			System.out.print("Cpf: ");
+			String cpf = sc.nextLine();
+
+			if(!sistemaVacinacao.cpfCadastrado(cpf)) {
+				System.out.println("Cpf inválido.");
+			} else {
+				
+				boolean alteracaoRealizada = false;
+				while(!alteracaoRealizada) {
+					System.out.println("Informe a opção que deseja alterar\n1) Nome\n2) Idade\n3) Endereco\n4) Número do Cartão do SUS\n5) E-mail\n6) Telefone\n7) Profissão\n8) Adicionar uma doença");
+					int opcao = sc.nextInt();
+					sc.nextLine();
+					if(!alterarCadastroVerificaOpcao(opcao)) {
+						System.out.println("Opcção Inválida.");
+					} else {
+						alteraCadastroProcessaOpcao(opcao, sistemaVacinacao, sc, cpf);
+						alteracaoRealizada = true;
 					}
-					
 				}
+					
 			}
 		}
+		
 	}
 	
 	private static boolean alterarCadastroVerificaOpcao(int opcao) {
