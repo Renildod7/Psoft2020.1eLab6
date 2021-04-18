@@ -187,7 +187,7 @@ public class Main {
 			possuiDoença = sc.nextLine();
 			
 			if(possuiDoença.equals("s")) {
-				System.out.println("Informe todas as doenças separadas por vírgula ',' e sem acentos.");
+				System.out.println("Informe todas as doenças separadas por vírgula ',':");
 				doencas.addAll(Arrays.asList(sc.nextLine().split(",")));
 				doencasListadas = true;
 			} else if(possuiDoença.equals("n")) {
@@ -319,7 +319,7 @@ public class Main {
 	}
 
 	private static void alterarCadastroAdicionarDoenca(SistemaVacinacao sistemaVacinacao, Scanner sc, String cpf) {
-		System.out.println("Informe as doenças separadas por virgula ',' e sem acentos: ");
+		System.out.println("Informe as doenças separadas por virgula ',': ");
 		List<String> doencas = Arrays.asList(sc.nextLine().split(","));
 		sistemaVacinacao.adicionarDoencas(cpf, doencas);
 		
@@ -341,7 +341,7 @@ public class Main {
 
 	
 	private static void adicionarNovasDoencasQueCausamComorbidade(SistemaVacinacao sistemaVacinacao, Scanner sc) {
-		System.out.println("Informe as doenças separadas por virgula ',' e sem acentos: ");
+		System.out.println("Informe as doenças separadas por virgula ',': ");
 		List<String> doencas = Arrays.asList(sc.nextLine().split(","));
 		sistemaVacinacao.adicionarNovasDoencasQueCausamComorbidade(doencas);
 		
@@ -349,7 +349,7 @@ public class Main {
 	
 
 	private static void adicionarNovasProfissoesHabilitadasReceberVacina(SistemaVacinacao sistemaVacinacao, Scanner sc) {
-		System.out.println("Informe as profissões separadas por virgula ',' e sem acentos: ");
+		System.out.println("Informe as profissões separadas por virgula ',': ");
 		List<String> profissoes = Arrays.asList(sc.nextLine().split(","));
 		sistemaVacinacao.adicionarNovasProfissoesHabilitadasReceberVacina(profissoes);
 		
